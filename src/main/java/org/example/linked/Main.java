@@ -16,14 +16,14 @@ public class Main {
     }
     // 反转链表
     public ListNode reverseLinked(ListNode node) {
-        ListNode previousLinked = null;
-        ListNode currentLinked = node;
-        while (currentLinked != null) {
-            ListNode nextTemp = currentLinked.next;  // 临时保存下一个节点
-            currentLinked.next = previousLinked;               // 反转当前节点的指向
-            previousLinked = currentLinked;                    // prev 向前移动
-            currentLinked = nextTemp;                // curr 向前移动
-        }
-        return previousLinked;
+           ListNode prev = null;
+           ListNode curr = node;
+           while (curr != null) {
+               ListNode nextTemp = curr.next;
+               curr.next = prev;
+               prev = curr;
+               curr = nextTemp;
+           }
+       return prev;
     }
 }
